@@ -1,0 +1,73 @@
+.day-calendar {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-calendar-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 20px 120px;
+  padding-bottom: 8px;
+  gap: 20px;
+}
+
+.day-calendar-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.day-calendar-header h3 {
+  font-weight: 200;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.day-calendar-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.day-calendar-container table {
+  width: 90%;
+  height: 100%;
+  border-top: 1px solid black;
+  border-collapse: collapse; 
+  margin-left: auto;
+}
+
+/* horizontal line for each row */
+.day-calendar-container tr {
+  border-bottom: 1px solid black;
+}
+
+.day-calendar-container tr td {
+  text-align: center;
+  padding: 40px;
+}
+
+.hours {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  height: 100%;
+  padding-top: 45px;
+  gap: 10px;
+}
+
+.hour {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 28px;
+}
