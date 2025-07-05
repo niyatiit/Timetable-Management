@@ -6,22 +6,25 @@ import Header from "../../components/Header/Header";
 import Calendar from "react-calendar";
 import './../../../node_modules/react-calendar/dist/Calendar.css';
 import DayCalendar from "../../components/DayCalendar/DayCalendar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import WeekCalendar from "../../components/WeekCalendar/WeekCalendar";
 
 const Home = () => {
 
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [view, setView] = useState("week");
 
 	return (
 		<div className="home-container">
-      <Header />
+      <Header setView={setView} view={view} />
       <div className="calendar-container">
         {/* <div className="create-button"> Create </div> */}
         <div className="sidebar">
           <Calendar onChange={setSelectedDate} value={selectedDate} />
         </div>
         <div className="calendar">
-          <DayCalendar selectedDate={selectedDate} />
+          {view == "day" && <DayCalendar selectedDate={selectedDate} />}
+          {view == "week" && <WeekCalendar selectedDate={selectedDate} />}
         </div>
       </div>
     </div>

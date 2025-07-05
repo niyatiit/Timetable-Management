@@ -1,13 +1,23 @@
 /* eslint-disable no-unused-vars */
+import { useEffect } from "react";
 import "./HeaderStyle.css";
 import {Tooltip as ReactTooltip} from "react-tooltip";
 
-const Header = () => {
+const Header = ( { setView, view } ) => {
   const today = new Date();
   const formattedDate = today.toLocaleDateString();
 
   const behind_change = () => { }
   const ahead_change = () => { }
+
+	const viewChange = (e) => {
+		setView(e.target.value);
+	}
+
+	useEffect(() => {
+		const selector = document.getElementById("views");
+		selector.value = view;
+	}, [view]);
 
 	return (
 		<div className="header-container">
@@ -38,9 +48,9 @@ const Header = () => {
           <img src="./../../assets/search-icon.png" alt="plz add search img" />
         </div>
         <div>
-          <select className="dropdown">
-            <option value="day">Day</option>
+          <select id="views" className="dropdown" onChange={viewChange}>
             <option value="week">Week</option>
+            <option value="day">Day</option>
             <option value="month">Month</option>
           </select>
         </div>

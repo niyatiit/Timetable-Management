@@ -20,7 +20,7 @@ const DayCalendar = ( { selectedDate } ) => {
 		"Dec",
 	];
 	const monthName = monthNames[selectedDate.getMonth().toString()];
-  const linePos = (minutesOfCurrentDay / 60) * 80.3;
+  const linePos = (minutesOfCurrentDay / 60) * 80.8;
 
   useEffect(() => {
     const timer = setInterval(() => {
