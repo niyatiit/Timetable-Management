@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import styles from './RegisterStyle.module.css';
 
 const Register = () => {
 
@@ -23,35 +24,36 @@ const Register = () => {
   }
 
   return (
-    <div className="main">
-      <div className="container">
-        <h1>Register</h1>
-        <form className='registerForm' onSubmit={handleSubmit(registerUser)}>
-          <div className='inp'>
-            <label htmlFor="name">Name</label>
-            <input {...register("name", {required: true})} type="text" />
-          </div>
-          <div className='inp'>
-            <label htmlFor="email">Email</label>
-            <input {...register("email", {required: true})} type="text" />
-          </div>
-          <div className='inp'>
-            <label htmlFor="password">Password</label>
-            <input {...register("password", {required: true})} type="password" />
-          </div>
-          <div className='inp'>
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input {...register("conformPass", {required: true})} type="password" />
-          </div>
-          <div className="inp">
-            <label htmlFor="number">Number</label>
-            <input {...register("number", {required: true})} type="text" name="" id="" />
-          </div>
-          <button type="submit" className='submit'>Submit</button>
-        </form>
+  
+ <div className={`${styles.main} ${styles.registerCard}`}>
+  <div className={styles.container}>
+    <h2 className={styles.heading}>Registration</h2>
+    <form className={styles.registerForm} onSubmit={handleSubmit(registerUser)}>
+      <div className={styles.inp}>
+        <label htmlFor="name">Name</label>
+        <input {...register("name", { required: true })} type="text" />
       </div>
-    </div>
-  )
+      <div className={styles.inp}>
+        <label htmlFor="email">Email</label>
+        <input {...register("email", { required: true })} type="text" />
+      </div>
+      <div className={styles.inp}>
+        <label htmlFor="password">Password</label>
+        <input {...register("password", { required: true })} type="password" />
+      </div>
+      <div className={styles.inp}>
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input {...register("conformPass", { required: true })} type="password" />
+      </div>
+      <div className={styles.inp}>
+        <label htmlFor="number">Number</label>
+        <input {...register("number", { required: true })} type="text" />
+      </div>
+      <button type="submit" className={styles.submit}>Submit</button>
+    </form>
+  </div>
+</div>
+);
 }
 
 export default Register;
