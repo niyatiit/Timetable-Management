@@ -8,11 +8,12 @@ import './../../../node_modules/react-calendar/dist/Calendar.css';
 import DayCalendar from "../../components/DayCalendar/DayCalendar";
 import { useEffect, useState } from "react";
 import WeekCalendar from "../../components/WeekCalendar/WeekCalendar";
+import MonthCalendar from "../../components/MonthCalendar/MonthCalendar";
 
 const Home = () => {
 
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [view, setView] = useState("week");
+  const [view, setView] = useState("month");
 
 	return (
 		<div className="home-container">
@@ -25,6 +26,7 @@ const Home = () => {
         <div className="calendar">
           {view == "day" && <DayCalendar selectedDate={selectedDate} />}
           {view == "week" && <WeekCalendar selectedDate={selectedDate} />}
+          {view == "month" && <MonthCalendar selectedDate={selectedDate} />} 
         </div>
       </div>
     </div>
