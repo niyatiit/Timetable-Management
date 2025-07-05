@@ -73,7 +73,7 @@ const WeekCalendar = ({ selectedDate }) => {
 				<table className="week-calendar-hours">
 					{[...Array(23)].map((_, hour) => {
 						return (
-							<tr key={hour + 1} className="hour">
+							<tr key={hour + 1} className="week-hour">
 								{hour + 1 < 12
 									? `${hour + 1} AM`
 									: hour + 1 === 12

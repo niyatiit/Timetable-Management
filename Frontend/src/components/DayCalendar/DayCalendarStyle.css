@@ -67,7 +67,7 @@
   padding: 40px;
 }
 
-.hours {
+.day-hours {
   display: flex;
   flex-direction: column;
   width: 10%;
@@ -75,7 +75,7 @@
   gap: 0px;
 }
 
-.hour {
+.day-hour {
   flex: 0 0 81px; /* means: do not grow, do not shrink, fixed height 81px */
   display: flex;
   align-items: center;

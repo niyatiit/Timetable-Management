@@ -2,32 +2,23 @@
 import { useEffect, useState } from "react";
 import "./DayCalendarStyle.css";
 
-const DayCalendar = ( { selectedDate } ) => {
+const DayCalendar = ({ selectedDate, tasks }) => {
 	const today = new Date();
-  const [minutesOfCurrentDay, setMinutesOfCurrentDay] = useState(today.getHours() * 60 + today.getMinutes());
-	const monthNames = [
-		"Jan",
-		"Feb",
-		"Mar",
-		"Apr",
-		"May",
-		"Jun",
-		"Jul",
-		"Aug",
-		"Sep",
-		"Oct",
-		"Nov",
-		"Dec",
-	];
+	const [minutesOfCurrentDay, setMinutesOfCurrentDay] = useState(
+		today.getHours() * 60 + today.getMinutes()
+	);
+	const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 	const monthName = monthNames[selectedDate.getMonth().toString()];
-  const linePos = (minutesOfCurrentDay / 60) * 80.8;
+	const linePos = (minutesOfCurrentDay / 60) * 80.8;
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setMinutesOfCurrentDay(new Date().getHours() * 60 + new Date().getMinutes());
-    }, 60000); 
-    return () => clearInterval(timer);
-  }, []);
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setMinutesOfCurrentDay(
+				new Date().getHours() * 60 + new Date().getMinutes()
+			);
+		}, 60000);
+		return () => clearInterval(timer);
+	}, []);
 
 	return (
 		<div className="day-calendar">
@@ -36,15 +27,17 @@ const DayCalendar = ( { selectedDate } ) => {
 				<h3>{monthName}</h3>
 			</div>
 			<div className="day-calendar-container">
-        { today.getDate() === selectedDate.getDate() && <div
-          className="current-time-line"
-          style={{ top: `${linePos}px` }}
-        ></div>}
+				{today.getDate() === selectedDate.getDate() && (
+					<div
+						className="current-time-line"
+						style={{ top: `${linePos}px` }}
+					></div>
+				)}
 
-				<table className="hours">
+				<table className="day-hours">
 					{[...Array(23)].map((_, hour) => {
 						return (
-							<tr key={hour + 1} className="hour">
+							<tr key={hour + 1} className="day-hour">
 								{hour + 1 < 12
 									? `${hour + 1} AM`
 									: hour + 1 === 12

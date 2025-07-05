@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import './LoginStyle.css';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../../api.js';
 
 const Login = () => {
 
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
   const toggleActive = (e) => {
     let btn = e.target;
@@ -17,18 +19,13 @@ const Login = () => {
     }
   }
 
-  const loginUser = (data) => {
-    console.log(data);
+  const loginUser = async (data) => {
     const admin = document.getElementById("butt2").classList.contains("active") ? 1 : 0;
 
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {...data, admin }, { withCredentials: true })
-      .then((response) => {
-        console.log("Login successful: ", response.data);
-        localStorage.setItem("user", JSON.stringify(response.data.data));
-      })
-      .catch((error) => {
-        console.error("Login failed: ", error.response ? error.response.data : error.message);
-      });
+    const res = await login({ ...data, admin });
+    if (res) {
+      navigate("/");
+    }
   }
 
   return (
