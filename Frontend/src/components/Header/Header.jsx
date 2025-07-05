@@ -14,7 +14,7 @@ const Header = () => {
 			<div className="header-left">
 				<div className="logo-container">
 					<img
-						src="https://i.ibb.co/7y0x5fH/logo.png"
+						src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9diqk263eRrAF-z0Q5aW5-9NEU30kObI4Lg&s"
 						alt="Logo"
 						className="logo"
 					/>
