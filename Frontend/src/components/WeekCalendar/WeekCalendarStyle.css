@@ -67,7 +67,7 @@
   gap: 0px;
 }
 
-.hour {
+.week-hour {
   flex: 0 0 82.6px; 
   display: flex;
   align-items: center;
