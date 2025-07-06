@@ -4,7 +4,7 @@
 /* ---------- GLOBAL (scoped with :global) ---------- */
 :global(html),
 :global(body) {
-  height: 50%;
+  height: 100%;
   margin: 0;
   font-family: "Roboto Slab", serif;
 }
