@@ -1,0 +1,86 @@
+/* ---------- WRAPPER ---------- */
+.dayCalendar {
+  max-width: none;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ---------- HEADER ---------- */
+.dayCalendarHeader {
+  background: #1d355d;        /* navy bar */
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0 0.6rem;
+}
+
+.dayCalendarHeader h2 {
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.dayCalendarHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- GRID CONTAINER ---------- */
+.dayCalendarContainer {
+  position: relative;
+  background: #0b1a30;        /* dark navy */
+  overflow-y: auto;
+  max-height: 70vh;
+  border-radius: 0 0 10px 10px;
+}
+
+/* red current‑time line */
+.currentTimeLine {
+  position: absolute;
+  left: 120px;
+  right: 0;
+  height: 2px;
+  background: #ff5959;
+  z-index: 10;
+}
+
+/* ---------- HOURS COLUMN ---------- */
+.hours {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  border-collapse: collapse;
+  background: #142744;
+  color: #ffffff;
+}
+
+.hour {
+  height: 60px;
+  border-bottom: 1px solid #25406c;
+  text-align: center;
+  line-height: 60px;          /* vertically centred */
+}
+
+/* ---------- MAIN GRID ---------- */
+.dayCalendarTable {
+  margin-left: 120px;          /* leave space for hours col */
+  width: calc(100% - 120px);
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: calc(100% - 120px);
+}
+
+.dayCalendarTable td {
+  height: 60px;
+  border: 1px solid #25406c;
+  background: #0b1a30;
+  box-sizing: border-box;
+}
+
+.inactiveHour td {
+  background: #11203b;
+}

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import "./DayCalendarStyle.css";
+import styles from "./DayCalendarStyle.module.css";
 
 const DayCalendar = ( { selectedDate } ) => {
 	const today = new Date();
@@ -30,41 +30,41 @@ const DayCalendar = ( { selectedDate } ) => {
   }, []);
 
 	return (
-		<div className="day-calendar">
-			<div className="day-calendar-header">
-				<h2>{selectedDate.getDate().toString()}</h2>
-				<h3>{monthName}</h3>
-			</div>
-			<div className="day-calendar-container">
-        { today.getDate() === selectedDate.getDate() && <div
-          className="current-time-line"
-          style={{ top: `${linePos}px` }}
-        ></div>}
+	<div className={styles.dayCalendar}>
+  <div className={styles.dayCalendarHeader}>
+    <h2>{selectedDate.getDate().toString()}</h2>
+    <h3>{monthName}</h3>
+  </div>
 
-				<table className="hours">
-					{[...Array(23)].map((_, hour) => {
-						return (
-							<tr key={hour + 1} className="hour">
-								{hour + 1 < 12
-									? `${hour + 1} AM`
-									: hour + 1 === 12
-									? "12 PM"
-									: `${hour + 1 - 12} PM`}
-							</tr>
-						);
-					})}
-				</table>
-				<table className="day-calendar-table">
-					{[...Array(24)].map((_, hour) => {
-						return (
-							<tr key={hour} className="inactive-hour">
-								<td></td>
-							</tr>
-						);
-					})}
-				</table>
-			</div>
-		</div>
+  <div className={styles.dayCalendarContainer}>
+    {today.getDate() === selectedDate.getDate() && (
+      <div
+        className={styles.currentTimeLine}
+        style={{ top: `${linePos}px` }}
+      ></div>
+    )}
+
+    <table className={styles.hours}>
+      {[...Array(23)].map((_, hour) => (
+        <tr key={hour + 1} className={styles.hour}>
+          {hour + 1 < 12
+            ? `${hour + 1} AM`
+            : hour + 1 === 12
+            ? "12 PM"
+            : `${hour + 1 - 12} PM`}
+        </tr>
+      ))}
+    </table>
+
+    <table className={styles.dayCalendarTable}>
+      {[...Array(24)].map((_, hour) => (
+        <tr key={hour} className={styles.inactiveHour}>
+          <td></td>
+        </tr>
+      ))}
+    </table>
+  </div>
+</div>
 	);
 };
 

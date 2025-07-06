@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
-import "./WeekCalendarStyle.css";
+import styles from "./WeekCalendarStyle.module.css";
 
 const WeekCalendar = ({ selectedDate }) => {
 	const [selectedWeek, setSelectedWeek] = useState([]);
@@ -40,7 +40,77 @@ const WeekCalendar = ({ selectedDate }) => {
 	};
 
 	return (
-		<div className="week-calendar">
+		<div className={styles.weekCalendar}>
+  <div className={styles.weekCalendarHeader}>
+    {selectedWeek.map((date, index) => (
+      <div key={index} className={styles.weekCalendarHeading}>
+        {new Date().getDate() !== date.getDate() ? (
+          <h2 onClick={() => changeSelectedDate(date)}>
+            {date.getDate()}
+          </h2>
+        ) : (
+          <h2
+            onClick={() => changeSelectedDate(date)}
+            className={styles.activeDate}
+          >
+            {date.getDate()}
+          </h2>
+        )}
+        <h3>{shortWeekDays[date.getDay()]}</h3>
+      </div>
+    ))}
+  </div>
+
+  <div className={styles.weekCalendarBody}>
+    <div
+      className={styles.weekCurrentTimeLine}
+      style={{
+        top: `${linePos}px`,
+        left: `${
+          124 +
+          157.5 *
+            selectedWeek.findIndex(
+              (d) =>
+                d.getDate() === new Date().getDate() &&
+                d.getMonth() === new Date().getMonth() &&
+                d.getFullYear() === new Date().getFullYear()
+            )
+        }px`,
+      }}
+    ></div>
+
+    <table className={styles.weekCalendarHours}>
+      {[...Array(23)].map((_, hour) => (
+        <tr key={hour + 1} className={styles.hour}>
+          {hour + 1 < 12
+            ? `${hour + 1} AM`
+            : hour + 1 === 12
+            ? "12 PM"
+            : `${hour + 1 - 12} PM`}
+        </tr>
+      ))}
+    </table>
+
+
+    <table className={styles.weekCalendarTable}>
+      {[...Array(24)].map((_, hour) => (
+        <tr key={hour} className={styles.inactiveHour}>
+          {selectedWeek.map((date, index) => (
+            <td key={index}></td>
+          ))}
+        </tr>
+      ))}
+    </table>
+  </div>
+</div>
+		
+	);
+};
+
+export default WeekCalendar;
+
+
+{/* <div className="week-calendar">
 			<div className="week-calendar-header">
 				{selectedWeek.map((date, index) => (
 					<div key={index} className="week-calendar-heading">
@@ -95,8 +165,4 @@ const WeekCalendar = ({ selectedDate }) => {
 					})}
 				</table>
 			</div>
-		</div>
-	);
-};
-
-export default WeekCalendar;
+		</div> */}

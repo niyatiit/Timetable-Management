@@ -1,0 +1,58 @@
+/* ---------- WRAPPER ---------- */
+.monthCalendar {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ---------- WEEKDAY HEADER ---------- */
+.monthCalendarHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.monthCalendarBody {
+  max-height: 85vh;    
+  overflow-y: auto;     
+  overflow-x: hidden;   
+}
+.monthCalendarHeading h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- TABLE ---------- */
+
+
+.monthCalendarTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  overflow-y: auto;   /* vertical scroll */
+  overflow-x: hidden;     
+}
+
+.monthCalendarTable td {
+  border: 1px solid #d7d7d7;
+  height: 100px;             /* square‑ish cells */
+  vertical-align: top;
+  text-align: left;
+  padding: 4px 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* first‑of‑month highlight */
+.newMonth {
+  background: #eef7ff;
+}
+
+/* hidden/blank cells (prev/next month) */
+.emptyCell {
+  background: #fafafa;
+  color: transparent;       /* keeps grid size with no visible text */
+  user-select: none;
+}
