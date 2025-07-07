@@ -12,15 +12,24 @@
 /* ---------- HEADER (Days Row) ---------- */
 .weekCalendarHeader {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  text-align: center;
+  grid-template-columns: 120px repeat(7, 1fr);   /* ← 8 columns now  */
+  /* text-align: right; */
   font-weight: 600;
+  position: relative;
+  left: 130px;
+  top:7px;
+  width: 100%;
 
-  /* fixes */
-  background: #1d355d;             /* same navy */
-  border-radius: 8px 8px 0 0;      /* rounded top bar */
+  background: #1d355d;
+  border-radius:  0 0;
   margin: 0;
   padding: 0;
+}
+
+/* blank cell that sits over the hours column */
+.hourHeaderSpacer {
+  width: 120px;
+  background: #1d355d;
 }
 
 .weekCalendarHeading {
@@ -45,7 +54,6 @@
   color: #ffffff;
 }
 
-/* rounded ends on first / last cells */
 .weekCalendarHeading:first-child {
   border-top-left-radius: 8px;
 }
@@ -74,9 +82,8 @@
 /* current time red line */
 .weekCurrentTimeLine {
   position: absolute;
-  width: calc(100% - 124px);
+  width: calc(100% - 120px);   /* ← matches hour col */
   height: 2px;
-  background: #ff5959;
   z-index: 10;
 }
 
@@ -90,7 +97,6 @@
   background: #142744;
   color: #ffffff;
 
-  /* consistent border */
   border-right: 1px solid #25406c;
   box-sizing: border-box;
 }
@@ -99,12 +105,12 @@
   height: 60px;
   border-bottom: 1px solid #25406c;
   text-align: center;
-  line-height: 60px;  /* vertically centred */
+  line-height: 60px;
 }
 
 /* ---------- MAIN GRID ---------- */
 .weekCalendarTable {
-  margin-left: 120px;          /* leave space for hours col */
+  margin-left: 120px;                 /* space for hours col */
   border-collapse: collapse;
   width: calc(100% - 120px);
   table-layout: fixed;
@@ -114,8 +120,6 @@
   height: 60px;
   border: 1px solid #25406c;
   background: #0b1a30;
-
-  /* consistent sizing */
   box-sizing: border-box;
 }
 

@@ -1,5 +1,9 @@
+body {
+  color: #ffffff;        /* white text */
+}
 /* ---------- WRAPPER ---------- */
 .monthCalendar {
+  background: #0b1a30;;   /* navy blue */
   max-width: 1200px;
   margin: 0 auto;
   font-family: "Segoe UI", sans-serif;
@@ -15,7 +19,7 @@
 }
 
 .monthCalendarBody {
-  max-height: 85vh;    
+  max-height: 80vh;    
   overflow-y: auto;     
   overflow-x: hidden;   
 }
@@ -47,7 +51,7 @@
 
 /* first‑of‑month highlight */
 .newMonth {
-  background: #eef7ff;
+  background: #9e9ea0;
 }
 
 /* hidden/blank cells (prev/next month) */
